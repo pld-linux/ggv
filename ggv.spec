@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	94ed597d879c5ade2dd208b30d017526
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
