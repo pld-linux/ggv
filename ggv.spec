@@ -87,4 +87,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/oaf/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
-%{_sysconfdir}/X11/GNOME/gconf/schemas/ggv.schemas
+%{_sysconfdir}/gconf/schemas/ggv.schemas
