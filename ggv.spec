@@ -1,26 +1,23 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.99.7
+Version:	1.99.8
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/ggv/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/ggv/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-#BuildRequires:	automake
-#BuildRequires:	autoconf
-#BuildRequires:	bonobo-devel >= 0.33
-#BuildRequires:	docbook-style-dsssl
-#BuildRequires:	gettext-devel
-#BuildRequires:	gtk+-devel >= 1.2.0
-#BuildRequires:	gnome-libs-devel
-#BuildRequires:	oaf-devel >= 0.6.2
-#BuildRequires:	GConf-devel >= 0.12
-#BuildRequires:	openjade
-#BuildRequires:	libtool
-#BuildRequires:	scrollkeeper
-#Prereq:		scrollkeeper
-#Requires:	ghostscript
+BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	docbook-style-dsssl
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	GConf2-devel >= 1.2.0
+BuildRequires:	openjade
+BuildRequires:	libtool
+BuildRequires:	scrollkeeper
+Prereq:		scrollkeeper
+Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -42,14 +39,6 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %setup -q -n %{name}-%{version}
 
 %build
-#rm missing acinclude.m4
-#libtoolize --copy --force
-#gettextize --copy --force
-#aclocal -I macros
-#autoconf
-#automake -a -c
-#CPPFLAGS="`gnome-config --cflags bonobo`"; export CPPFLAGS
-#LDFLAGS="-L%{_libdir} -lbonobox"; export LDFLAGS
 %configure --enable-platform-gnome-2 \
 	   --disable-install-schemas
 
@@ -63,16 +52,15 @@ rm -rf $RPM_BUILD_ROOT
 	Graphicsdir=%{_applnkdir}/Graphics \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
+
 %find_lang %{name} --with-gnome
 
 %post
-GCONF_CONFIG_SOURCE="" \                                                        
-/usr/X11R6/bin/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1
 /usr/bin/scrollkeeper-update
+GCONF_CONFIG_SOURCE="" \
+%{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
 
 %postun
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1
 /usr/bin/scrollkeeper-update
 
 %clean
@@ -85,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/gconf/schemas/*
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
+%{_libdir}/bonobo/servers/*server
 %{_pixmapsdir}/*
-%{_libdir}/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
