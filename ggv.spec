@@ -16,7 +16,7 @@ BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	oaf-devel >= 0.6.2
 BuildRequires:	GConf-devel >= 0.12
-BuildRequires:	jade
+BuildRequires:	openjade
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper
 Prereq:		scrollkeeper
