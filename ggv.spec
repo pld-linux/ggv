@@ -23,6 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME
+%define		_omf_dest_dir	%(scrollkeeper-config --omfdir)
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
@@ -54,7 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_applnkdir}/Graphics
+	Graphicsdir=%{_applnkdir}/Graphics \
+	omf_dest_dir=%{_omf_dest_dir}/omf/%{name}
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -74,4 +76,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_pixmapsdir}/*
 %{_datadir}/oaf/*
-%{_datadir}/omf/ggv
+%{_omf_dest_dir}/omf/ggv
