@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	0.61
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Applications
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/ggv/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
+BuildRequires:	bonobo-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
@@ -35,7 +36,8 @@ postscriptowych dokumentów na Twoim ekranie.
 gettextize --copy --force
 automake
 LDFLAGS="-s"; export LDFLAGS
-%configure
+%configure \
+	--enable-bonobo
 
 make
 
@@ -54,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(755,root,root) %{_bindir}/ggv
+%attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/CORBA/servers/*
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/pixmaps/*
