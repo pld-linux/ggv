@@ -1,32 +1,35 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.4.1
+Version:	2.6.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d88e2c299d6062e85b8199f5f36c801
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	5d3920904e16cb30903bfd114daf59f3
 Patch0:		%{name}-mime-pdf.patch
+Patch1:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.3.3
+BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.2.3
-BuildRequires:	intltool
-BuildRequires:	libbonobo-devel >= 2.4.0
+BuildRequires:	ghostscript
+BuildRequires:	gnome-common
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	intltool >= 0.30
+BuildRequires:	libgnomeui-devel >= 2.5.92
+BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRequires:	openjade
+BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
-BuildRequires:	gnome-common
-BuildRequires:	ghostscript
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
-Requires:	libbonobo >= 2.4.0
+Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,6 +45,9 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+mv po/{no,nb}.po
 
 %build
 rm -f missing acinclude.m4
@@ -53,17 +59,16 @@ intltoolize --copy --force
 %{__automake}
 %configure \
 	--enable-platform-gnome-2 \
-	--disable--schemas-install
+	--disable-schemas-install
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
+	DESTDIR=$RPM_BUILD_ROOT \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
