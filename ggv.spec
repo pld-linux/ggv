@@ -1,18 +1,17 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	0.82
-Release:	2
+Version:	0.95
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
 Source:		ftp://ftp.gnome.org/pub/GNOME/stable/sources/ggv/%{name}-%{version}.tar.gz
-Patch:		ggv-applnk.patch
-URL:		http://www.gnome.org/
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	bonobo-devel
+URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -30,11 +29,9 @@ postscriptowych dokumentów na Twoim ekranie.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 gettextize --copy --force
-automake
 LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-bonobo
@@ -44,7 +41,9 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install DESTDIR=$RPM_BUILD_ROOT
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	Graphicsdir=%{_applnkdir}/Graphics
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
