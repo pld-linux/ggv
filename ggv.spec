@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	0.95
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
@@ -10,7 +10,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/ggv/%{name}-%{version}.tar
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
-BuildRequires:	bonobo-devel
+BuildRequires:	bonobo-devel >= 0.33
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
