@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_libdir}/bonobo/servers/*server
-%{_libdir}/*
+%{_libdir}/[^b]*
 %{_pixmapsdir}/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
