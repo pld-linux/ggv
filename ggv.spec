@@ -32,7 +32,6 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 
 %build
 gettextize --copy --force
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-bonobo
 
