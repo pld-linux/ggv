@@ -1,18 +1,18 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.99.8
+Version:	1.99.90
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/ggv/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/ggv/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.0.3
-BuildRequires:	GConf2-devel >= 1.2.0
+BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	openjade
 BuildRequires:	libtool
 BuildRequires:	scrollkeeper
@@ -74,6 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_libdir}/bonobo/servers/*server
+%{_libdir}/*
 %{_pixmapsdir}/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
