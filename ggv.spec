@@ -18,6 +18,7 @@ BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	openjade
 BuildRequires:	scrollkeeper
 BuildRequires:	bonobo-activation-devel >= 2.1.0-3
+BuildRequires:	rpm-build >= 4.1-7
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
