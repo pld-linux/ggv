@@ -1,13 +1,13 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.0.1
-Release:	3
+Version:	1.1.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/ggv/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
