@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.99.96
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.99/%{name}-%{version}.tar.bz2
@@ -17,16 +17,17 @@ BuildRequires:	libtool
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	openjade
 BuildRequires:	scrollkeeper
-BuildRequires:	bonobo-activation-devel >= 2.1.0
+BuildRequires:	bonobo-activation-devel >= 2.1.0-3
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
-Requires:	bonobo-activation >= 2.1.0
+Requires:	bonobo-activation >= 2.1.0-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME2
+%define   _serverdir  /usr/lib/bonobo/servers
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
@@ -53,7 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Graphicsdir=%{_applnkdir}/Graphics \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	omf_dest_dir=%{_omf_dest_dir}/%{name} \
+	serverdir=%{_serverdir}
 
 %find_lang %{name} --with-gnome
 
@@ -75,7 +77,7 @@ GCONF_CONFIG_SOURCE="" \
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_datadir}/idl/*
-%{_libdir}/bonobo/servers/*server
+%{_serverdir}/*
 %{_omf_dest_dir}/%{name}
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/*
