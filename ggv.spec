@@ -69,7 +69,7 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 /usr/bin/scrollkeeper-update
 
 %postun
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1                                                                                             
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1
 /usr/bin/scrollkeeper-update
 
 %clean
