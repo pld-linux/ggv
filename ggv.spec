@@ -1,12 +1,12 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.3.2
-Release:	2
+Version:	2.3.99
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	a7ef96867af6f2fe6628d5dde19e98fb
+# Source0-md5:	514b07f56e4030f2f6d6c05ef5ad99c6
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	autoconf
@@ -39,6 +39,13 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %setup -q
 
 %build
+rm -f missing acinclude.m4
+%{__libtoolize}
+glib-gettextize --copy --force
+intltoolize --copy --force
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
 %configure --enable-platform-gnome-2 \
 	   --disable--schemas-install
 
