@@ -1,27 +1,27 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.5.99
+Version:	2.5.99.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	7f75b4b30165f1e1ea3be0ec6e8b5c46
+# Source0-md5:	51d2e73677ba7b9f4401ddbf66a349a6
 Patch0:		%{name}-mime-pdf.patch
 Patch1:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.5.1
+BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
 BuildRequires:	ghostscript
 BuildRequires:	gnome-common
-BuildRequires:	gtk+2-devel >= 2.3.2
+BuildRequires:	gtk+2-devel >= 2:2.3.6
 BuildRequires:	intltool >= 0.30
-BuildRequires:	libgnomeui-devel >= 2.5.0
-BuildRequires:	libbonobo-devel >= 2.5.4
-BuildRequires:	libtool >= 0.29
+BuildRequires:	libgnomeui-devel >= 2.5.90
+BuildRequires:	libbonobo-devel >= 2.6.0
+BuildRequires:	libtool
 BuildRequires:	openjade
 BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
@@ -29,7 +29,7 @@ BuildRequires:	scrollkeeper
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
-Requires:	libbonobo >= 2.5.4
+Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
