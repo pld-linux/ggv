@@ -1,12 +1,14 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.1.94
-Release:	4
+Version:	1.1.95
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/ggv/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org//pub/GNOME/sources/ggv/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-omf.patch
+Patch1:		%{name}-ac25x.patch
+Patch2:		%{name}-am16.patch
 URL:		http://www.gnome.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -43,16 +45,18 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
-#rm missing acinclude.m4
-#libtoolize --copy --force
-#gettextize --copy --force
-#aclocal -I macros
-#autoconf
-#automake -a -c
-CPPFLAGS="`gnome-config --cflags bonobo`"; export CPPFLAGS
-LDFLAGS="-L%{_libdir} -lbonobox"; export LDFLAGS
+rm -f missing acinclude.m4
+%{__libtoolize}
+%{__gettextize}
+%{__aclocal} -I macros
+%{__autoconf}
+%{__automake}
+#CPPFLAGS="`gnome-config --cflags bonobo`"; export CPPFLAGS
+#LDFLAGS="-L%{_libdir} -lbonobox"; export LDFLAGS
 %configure \
 	--enable-bonobo
 
