@@ -14,6 +14,7 @@ BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
+BuildRequires:	libxml-devel
 BuildRequires:	oaf-devel >= 0.6.2
 BuildRequires:	GConf-devel >= 0.12
 BuildRequires:	openjade
@@ -86,3 +87,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/oaf/*
 %{_datadir}/idl/*
 %{_omf_dest_dir}/%{name}
+%{_sysconfdir}/X11/GNOME/gconf/schemas/ggv.schemas
