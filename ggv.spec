@@ -1,5 +1,5 @@
 Summary:	GNOME Ghostscript Viewer
-Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
+Summary(pl):	Przegl±darka ghostscript dla GNOME
 Name:		ggv
 Version:	2.6.2
 Release:	1
@@ -38,9 +38,9 @@ postscript interpretter. Use this program to preview postscript
 documents on your screen.
 
 %description -l pl
-Przegl±darka Ghostscriptu dla GNOME - graficzny frontend dla
-interpretera postscriptu o nazwie Ghostscript. U¿ywaj tego programu do
-przegl±dania postscriptowych dokumentów na Twoim ekranie.
+Przegl±darka ghostscriptu dla GNOME - graficzny frontend dla
+interpretera postscriptu o nazwie ghostscript. Program ten slu¿y do
+przegl±dania postscriptowych dokumentów na ekranie.
 
 %prep
 %setup -q
