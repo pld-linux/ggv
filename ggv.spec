@@ -2,10 +2,11 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.1.94
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/ggv/%{name}-%{version}.tar.gz
+Patch0:		%{name}-omf.patch
 URL:		http://www.gnome.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -41,6 +42,7 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 
 %prep
 %setup -q -n %{name}-%{version}
+%patch0 -p1
 
 %build
 #rm missing acinclude.m4
