@@ -1,29 +1,31 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.5.4
+Version:	2.5.99
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	41494014589822d6f605be1b7f834d4f
+# Source0-md5:	7f75b4b30165f1e1ea3be0ec6e8b5c46
 Patch0:		%{name}-mime-pdf.patch
-Patch1:		%{name}-libtool.patch
+Patch1:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
+BuildRequires:	ghostscript
+BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2.3.2
-BuildRequires:	intltool
+BuildRequires:	intltool >= 0.30
+BuildRequires:	libgnomeui-devel >= 2.5.0
 BuildRequires:	libbonobo-devel >= 2.5.4
 BuildRequires:	libtool >= 0.29
 BuildRequires:	openjade
+BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
-BuildRequires:	gnome-common
-BuildRequires:	ghostscript
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
@@ -45,6 +47,8 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %patch0 -p1
 %patch1 -p1
 
+mv po/{no,nb}.po
+
 %build
 rm -f missing acinclude.m4
 %{__libtoolize}
@@ -55,17 +59,16 @@ intltoolize --copy --force
 %{__automake}
 %configure \
 	--enable-platform-gnome-2 \
-	--disable--schemas-install
+	--disable-schemas-install
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
+	DESTDIR=$RPM_BUILD_ROOT \
+	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 
 %find_lang %{name} --with-gnome
 
