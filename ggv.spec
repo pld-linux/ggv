@@ -22,6 +22,7 @@ BuildRequires:	openjade
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-common
+BuildRequires:	ghostscript
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
