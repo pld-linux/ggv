@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.1.94
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/ggv/%{name}-%{version}.tar.gz
@@ -60,10 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_applnkdir}/Graphics \
+	Graphicsdir=%{_applnkdir}/Graphics/Viewers \
 	omf_dest_dir=%{_omf_dest_dir}/%{name}
-
-gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name} --with-gnome
 
@@ -80,9 +78,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Graphics/ggv.desktop
+%{_applnkdir}/Graphics/Viewers/ggv.desktop
 %{_datadir}/gnome/ui/ggv*
 %{_pixmapsdir}/*
 %{_datadir}/oaf/*
