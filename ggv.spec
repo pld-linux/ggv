@@ -2,22 +2,24 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.0.1
-Release:	1
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/%{name}-%{version}.tar.gz
-BuildRequires:	gettext-devel
-BuildRequires:	libtool
+URL:		http://www.gnome.org/
 BuildRequires:	automake
 BuildRequires:	autoconf
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	gnome-libs-devel
 BuildRequires:	bonobo-devel >= 0.33
 BuildRequires:	docbook-style-dsssl
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	gnome-libs-devel
 BuildRequires:	jade
-URL:		http://www.gnome.org/
+BuildRequires:	libtool
+BuildRequires:	scrollkeeper
+Prereq:		scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -64,8 +66,12 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1
+/usr/bin/scrollkeeper-update
+
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1                                                                                             
+/usr/bin/scrollkeeper-update
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
