@@ -1,16 +1,16 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.6.0
+Version:	2.6.0.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	5d3920904e16cb30903bfd114daf59f3
+# Source0-md5:	1c563ecffa556d2132d48600ed9fd22f
 Patch0:		%{name}-mime-pdf.patch
 Patch1:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	GConf2-devel >= 2.6.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
@@ -19,7 +19,7 @@ BuildRequires:	ghostscript
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	intltool >= 0.30
-BuildRequires:	libgnomeui-devel >= 2.5.92
+BuildRequires:	libgnomeui-devel >= 2.6.0
 BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRequires:	openjade
