@@ -13,11 +13,10 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	bonobo-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_sysconfdir	/etc/X11/GNOME
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript postscript
