@@ -17,7 +17,8 @@ BuildRequires:	libtool
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	openjade
 BuildRequires:	scrollkeeper
-PreReq:		scrollkeeper
+Requires(post):	GConf2
+Requires(post):	scrollkeeper
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,15 +55,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 /usr/bin/scrollkeeper-update
 GCONF_CONFIG_SOURCE="" \
 %{_bindir}/gconftool-2 --makefile-install-rule %{_sysconfdir}/gconf/schemas/*.schemas > /dev/null 
 
 %postun -p /usr/bin/scrollkeeper-update
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
