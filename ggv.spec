@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
-Source:		ftp://ftp.gnome.org/pub/GNOME/stable/sources/ggv/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/ggv/%{name}-%{version}.tar.gz
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
@@ -18,14 +18,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
-GNOME Ghostscript viewer - a GUI frontend to the Ghostscript postscript
-interpretter. Use this program to preview postscript documents on your
-screen.
+GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
+postscript interpretter. Use this program to preview postscript
+documents on your screen.
 
 %description -l pl
-Przegl±darka Ghostscriptu dla GNOME - graficzny frontend dla interpretera
-postscriptu o nazwie Ghostscript. U¿ywaj tego programu do przegl±dania
-postscriptowych dokumentów na Twoim ekranie.
+Przegl±darka Ghostscriptu dla GNOME - graficzny frontend dla
+interpretera postscriptu o nazwie Ghostscript. U¿ywaj tego programu do
+przegl±dania postscriptowych dokumentów na Twoim ekranie.
 
 %prep
 %setup -q
