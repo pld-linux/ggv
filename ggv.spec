@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.99.96
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.99/%{name}-%{version}.tar.bz2
@@ -27,7 +27,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME2
-%define   _bonobo_server_dir  /usr/lib/bonobo/servers
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
@@ -54,8 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	Graphicsdir=%{_applnkdir}/Graphics \
-	omf_dest_dir=%{_omf_dest_dir}/%{name} \
-	serverdir=%{_bonobo_server_dir}
+	omf_dest_dir=%{_omf_dest_dir}/%{name}
 
 %find_lang %{name} --with-gnome
 
@@ -76,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_datadir}/idl/*
-%{_bonobo_server_dir}/*
+%{_libdir}/bonobo/servers/*
 %{_omf_dest_dir}/%{name}
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/*
