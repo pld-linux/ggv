@@ -1,7 +1,7 @@
 Summary:     GNOME Ghostscript Viewer
 Name:        ggv
 Version:     0.26
-Release:     3
+Release:     4
 Copyright:   GPL
 Group:       X11/gnome
 Source:      ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
@@ -17,20 +17,15 @@ screen.
 %setup -q
 
 %build
-# Needed for snapshot releases.
-if [ ! -f configure ]; then
-  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=/usr
-else
-  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
-fi
+CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr/X11R6
 
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT/usr install
+make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
 
-strip $RPM_BUILD_ROOT/usr/bin/*
+strip $RPM_BUILD_ROOT/usr/X11R6/bin/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -38,13 +33,17 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644, root, root, 755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755, root, root) /usr/bin/ggv
-/usr/share/apps/Graphics/ggv.desktop
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/ggv.mo
-%lang(ko) /usr/share/locale/ko/LC_MESSAGES/ggv.mo
-%lang(pt) /usr/share/locale/pt/LC_MESSAGES/ggv.mo
+%attr(755, root, root) /usr/X11R6/bin/ggv
+/usr/X11R6/share/apps/Graphics/ggv.desktop
+%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/ggv.mo
+%lang(ko) /usr/X11R6/share/locale/ko/LC_MESSAGES/ggv.mo
+%lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/ggv.mo
 
 %changelog
+* Fri Sep 18 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.26-4]
+- changed prefix to /usr/X11R6.
+
 * Sun Sep  6 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.26-3]
 - added -q %setup parameter,
