@@ -23,6 +23,7 @@ BuildRequires:	libbonobo-devel >= 2.6.2
 BuildRequires:	libgnomeui-devel >= 2.7.91
 BuildRequires:	libtool
 BuildRequires:	openjade
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
