@@ -45,6 +45,9 @@ przegl±dania postscriptowych dokumentów na ekranie.
 %setup -q
 %patch0 -p1
 
+sed -i -e 's/^Categories=GNOME;Application;/Categories=GTK;GNOME;/' \
+        ggv.desktop.in
+
 %build
 rm -f missing acinclude.m4
 %{__libtoolize}
