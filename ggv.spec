@@ -65,11 +65,11 @@ gzip -9nf AUTHORS ChangeLog NEWS README
 %find_lang %{name} --with-gnome
 
 %post
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1
 /usr/bin/scrollkeeper-update
 
 %postun
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} > /dev/null 2>&1                                                                                             
 /usr/bin/scrollkeeper-update
 
 %clean
