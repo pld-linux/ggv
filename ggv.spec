@@ -33,9 +33,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-
 %doc AUTHORS ChangeLog NEWS README
-%atttr(755, root, root) /usr/X11R6/bin/ggv
+%attr(755, root, root) /usr/X11R6/bin/ggv
 /usr/X11R6/share/apps/Graphics/ggv.desktop
 
 %lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/ggv.mo
