@@ -36,18 +36,16 @@ make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
 
 strip $RPM_BUILD_ROOT/usr/X11R6/bin/*
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) /usr/X11R6/bin/ggv
 /usr/X11R6/share/apps/Graphics/ggv.desktop
-
-%lang(fr) /usr/X11R6/share/locale/fr/LC_MESSAGES/ggv.mo
-%lang(ko) /usr/X11R6/share/locale/ko/LC_MESSAGES/ggv.mo
-%lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/ggv.mo
 
 %changelog
 * Sat Oct  3 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
