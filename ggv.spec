@@ -2,12 +2,13 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka ghostscript dla GNOME
 Name:		ggv
 Version:	2.8.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	1a8e9e43ef793ef3221c5afb15d14a81
 Patch0:		%{name}-mime-pdf.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.91
 BuildRequires:	autoconf
@@ -18,8 +19,8 @@ BuildRequires:	ghostscript
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.30
-BuildRequires:	libgnomeui-devel >= 2.7.91
 BuildRequires:	libbonobo-devel >= 2.6.2
+BuildRequires:	libgnomeui-devel >= 2.7.91
 BuildRequires:	libtool
 BuildRequires:	openjade
 BuildRequires:	popt-devel
@@ -44,9 +45,7 @@ przegl±dania postscriptowych dokumentów na ekranie.
 %prep
 %setup -q
 %patch0 -p1
-
-sed -i -e 's/^Categories=GNOME;Application;/Categories=GTK;GNOME;/' \
-        ggv.desktop.in
+%patch1 -p1
 
 %build
 rm -f missing acinclude.m4
