@@ -12,7 +12,7 @@ BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.1.3-3
+BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	openjade
