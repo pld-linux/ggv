@@ -5,8 +5,8 @@ Version:	2.3.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-# Source0-md5:	019aad0d437f35796f1450b6b70d80ed
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	087bbe0e84a7ef414cf1f7c36e8cc132
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
