@@ -23,7 +23,9 @@ postscriptowych dokumentów na Twoim ekranie.
 %setup -q
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr/X11R6
+CFLAGS="$RPM_OPT_FLAGS" \
+./configure %{_target} \
+	--prefix=/usr/X11R6
 
 make
 
