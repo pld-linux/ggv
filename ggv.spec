@@ -62,6 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Graphics/ggv.desktop
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 %{_datadir}/oaf/*
 %{_infodir}/*info*
