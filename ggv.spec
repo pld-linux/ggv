@@ -2,28 +2,28 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.1.95
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.gnome.org//pub/GNOME/sources/ggv/%{version}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-omf.patch
 Patch1:		%{name}-ac25x.patch
 Patch2:		%{name}-am16.patch
+Patch3:		%{name}-buffer.patch
 URL:		http://www.gnome.org/
-BuildRequires:	automake
+BuildRequires:	GConf-devel >= 0.12
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bonobo-devel >= 0.33
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	libtool
 BuildRequires:	libxml-devel
 BuildRequires:	oaf-devel >= 0.6.2
-BuildRequires:	GConf-devel >= 0.12
 BuildRequires:	openjade
-BuildRequires:	libtool
 BuildRequires:	scrollkeeper
-Prereq:		scrollkeeper
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,6 +47,7 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing acinclude.m4
@@ -72,11 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 
-%post   -p /usr/bin/scrollkeeper-update
-%postun -p /usr/bin/scrollkeeper-update
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /usr/bin/scrollkeeper-update
+%postun -p /usr/bin/scrollkeeper-update
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
