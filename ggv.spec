@@ -58,7 +58,7 @@ rm -rf $RPM_BUILD_ROOT
 - changed Buildroot to /tmp/%%{name}-%%{version}-root,
 - added using %%{name} and %%{version} in Source,
 - removed COPYING from %doc,
-- added striping binaries,
+- added stripping binaries,
 - added %lang macros for /usr/X11R6/share/locale/*/LC_MESSAGES/ggv.mo
   files,
 - added full %attr description in %files.
