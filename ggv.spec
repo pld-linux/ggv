@@ -26,7 +26,7 @@ BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
 Requires(post):	GConf2
-Requires(post):	scrollkeeper
+Requires(post,postun):	scrollkeeper
 Requires:	ghostscript
 Requires:	libbonobo >= 2.6.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,10 +77,15 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 /usr/bin/scrollkeeper-update
 %gconf_schema_install
+[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
 
-%postun -p /usr/bin/scrollkeeper-update
+%postun
+umask 022
+/usr/bin/scrollkeeper-update
+[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
