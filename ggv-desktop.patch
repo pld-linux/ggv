@@ -1,0 +1,12 @@
+diff -urN ggv-2.8.0.orig/ggv.desktop.in ggv-2.8.0/ggv.desktop.in
+--- ggv-2.8.0.orig/ggv.desktop.in	2004-11-30 23:15:04.177987352 +0100
++++ ggv-2.8.0/ggv.desktop.in	2004-11-30 23:16:12.141655304 +0100
+@@ -7,7 +7,7 @@
+ StartupNotify=true
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Graphics;VectorGraphics;Viewer;
++Categories=GTK;GNOME;Graphics;Viewer;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=GGV
+ X-GNOME-DocPath=ggv/ggv-xml
