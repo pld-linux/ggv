@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
 BuildRequires:	ghostscript
-BuildRequires:	gnome-common
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	intltool >= 0.30
 BuildRequires:	libgnomeui-devel >= 2.7.91
@@ -53,7 +53,7 @@ rm -f missing acinclude.m4
 %{__libtoolize}
 glib-gettextize --copy --force
 intltoolize --copy --force
-%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
