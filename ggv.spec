@@ -7,7 +7,7 @@ Copyright:   GPL
 Group:       X11/Libraries
 Source:      ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
 URL:         http://www.gnome.org
-BuildRoot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript postscript
