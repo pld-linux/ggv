@@ -1,14 +1,13 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.7.0
-Release:	2
+Version:	2.7.99
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	22587219ee7ab71eb09c2134e78e5084
+# Source0-md5:	8f138ab2517d68bff74838e5ebc83fc8
 Patch0:		%{name}-mime-pdf.patch
-Patch1:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.91
 BuildRequires:	autoconf
@@ -45,9 +44,6 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-
-mv po/{no,nb}.po
 
 %build
 rm -f missing acinclude.m4
@@ -69,6 +65,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
