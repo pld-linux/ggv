@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	2.5.0
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
@@ -16,9 +16,9 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.3.0
+BuildRequires:	gtk+2-devel >= 2.3.1
 BuildRequires:	intltool
-BuildRequires:	libbonobo-devel >= 2.4.0
+BuildRequires:	libbonobo-devel >= 2.5.0
 BuildRequires:	libtool
 BuildRequires:	openjade
 BuildRequires:	rpm-build >= 4.1-8.2
@@ -28,7 +28,7 @@ BuildRequires:	ghostscript
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
-Requires:	libbonobo >= 2.4.0
+Requires:	libbonobo >= 2.5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
