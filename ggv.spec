@@ -18,7 +18,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.3.1
 BuildRequires:	intltool
 BuildRequires:	libbonobo-devel >= 2.5.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 0.29
 BuildRequires:	openjade
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRequires:	scrollkeeper
