@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.99.96
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.99/%{name}-%{version}.tar.bz2
@@ -48,9 +48,7 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_applnkdir}/Graphics \
-	omf_dest_dir=%{_omf_dest_dir}/%{name}
+	DESTDIR=$RPM_BUILD_ROOT 
 
 %find_lang %{name} --with-gnome
 
@@ -68,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/ggv*
-%{_applnkdir}/Graphics/ggv.desktop
+%{_datadir}/applications/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_datadir}/idl/*
 %{_libdir}/bonobo/servers/*
