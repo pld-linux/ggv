@@ -8,18 +8,18 @@ Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
 # Source0-md5:	087bbe0e84a7ef414cf1f7c36e8cc132
 URL:		http://www.gnome.org/
+BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
-BuildRequires:	libtool
-BuildRequires:	GConf2-devel >= 1.2.1-10
-BuildRequires:	openjade
-BuildRequires:	scrollkeeper
 BuildRequires:	libbonobo-devel >= 2.3.1
+BuildRequires:	libtool
+BuildRequires:	openjade
 BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	scrollkeeper
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
@@ -69,10 +69,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/ggv*
-%{_datadir}/applications/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_datadir}/idl/*
 %{_libdir}/bonobo/servers/*
 %{_omf_dest_dir}/%{name}
+%{_desktopdir}/ggv.desktop
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/*
