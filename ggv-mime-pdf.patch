@@ -1,6 +1,15 @@
 diff -Nuard ggv-2.4.0.1.orig/bonobo/GNOME_GGV.server.in.in ggv-2.4.0.1/bonobo/GNOME_GGV.server.in.in
 --- ggv-2.4.0.1.orig/bonobo/GNOME_GGV.server.in.in	2003-07-14 19:10:21.000000000 +0200
-+++ ggv-2.4.0.1/bonobo/GNOME_GGV.server.in.in	2003-09-13 01:14:14.000000000 +0200
++++ ggv-2.4.0.1/bonobo/GNOME_GGV.server.in.in	2003-09-13 01:45:27.000000000 +0200
+@@ -28,7 +28,7 @@
+   <oaf_attribute name="bonobo:editable" type="boolean" value="false"/>
+   <oaf_attribute name="bonobo:supported_mime_types" type="stringv">
+     <item value="application/postscript"/>
+-    <!-- <item value="application/pdf"/> -->
++    <item value="application/pdf"/>
+   </oaf_attribute>
+   <oaf_attribute name="nautilus:view_as_name" type="string" value="GGV Postscript Document Control"/>
+ </oaf_server>
 @@ -48,7 +48,7 @@
                   _value="GGV PostScript View"/>
    <oaf_attribute name="bonobo:supported_mime_types" type="stringv">
