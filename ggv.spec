@@ -2,16 +2,16 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Group(pl):	X11/Aplikacje/Grafika
-Source0:	ftp://ftp.gnome.org/pub/GNOME/testing/%{name}-%{version}-test7.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/testing/%{name}-%{version}.tar.gz
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	bonobo-devel >= 0.33
-BuildRequires:	docbook-dsssl
+BuildRequires:	docbook-style-dsssl
 BuildRequires:	jade
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +30,7 @@ interpretera postscriptu o nazwie Ghostscript. U¿ywaj tego programu do
 przegl±dania postscriptowych dokumentów na Twoim ekranie.
 
 %prep
-%setup -q -n %{name}-%{version}-test7
+%setup -q -n %{name}-%{version}
 
 %build
 gettextize --copy --force
@@ -64,4 +64,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_pixmapsdir}/*
 %{_datadir}/oaf/*
-%{_infodir}/*info*
