@@ -14,6 +14,7 @@ BuildRequires:	automake
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	intltool
 BuildRequires:	libbonobo-devel >= 2.3.1
 BuildRequires:	libtool
 BuildRequires:	openjade
@@ -46,8 +47,9 @@ intltoolize --copy --force
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
-%configure --enable-platform-gnome-2 \
-	   --disable--schemas-install
+%configure \
+	--enable-platform-gnome-2 \
+	--disable--schemas-install
 
 %{__make}
 
