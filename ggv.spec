@@ -1,7 +1,7 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.1.92
+Version:	1.1.93
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
