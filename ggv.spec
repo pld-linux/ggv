@@ -48,7 +48,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,6 +60,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/CORBA/servers/*
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/pixmaps/*
-
-%dir %{_datadir}/gnome/help/ggv
-%{_datadir}/gnome/help/ggv/C
