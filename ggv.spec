@@ -69,11 +69,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_sysconfdir}/gconf/schemas/*
+%attr(755,root,root) %{_libdir}/ggv*
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
-%{_libdir}/bonobo/servers/*server
-%{_libdir}/[^b]*
-%{_pixmapsdir}/*
 %{_datadir}/idl/*
+%{_libdir}/bonobo/servers/*server
 %{_omf_dest_dir}/%{name}
+%{_pixmapsdir}/*
+%{_sysconfdir}/gconf/schemas/*
