@@ -1,13 +1,17 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	1.0
-Release:	2
+Version:	1.0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
+Group(de):	X11/Applikationen/Grafik
 Group(pl):	X11/Aplikacje/Grafika
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/%{name}-%{version}.tar.gz
 BuildRequires:	gettext-devel
+BuildRequires:	libtool
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	gnome-libs-devel
 BuildRequires:	bonobo-devel >= 0.33
@@ -17,6 +21,7 @@ URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
@@ -33,7 +38,12 @@ przegl±dania postscriptowych dokumentów na Twoim ekranie.
 %setup -q -n %{name}-%{version}
 
 %build
+rm missing acinclude.m4
+libtoolize --copy --force
 gettextize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 %configure \
 	--enable-bonobo
 
@@ -64,3 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_pixmapsdir}/*
 %{_datadir}/oaf/*
+%{_datadir}/omf/ggv
