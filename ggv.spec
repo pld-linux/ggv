@@ -1,7 +1,8 @@
 Summary:     GNOME Ghostscript Viewer
+Summary(pl): Przegl±darka Ghostscriptu dla GNOME
 Name:        ggv
 Version:     0.26
-Release:     4
+Release:     5
 Copyright:   GPL
 Group:       X11/Libraries
 Source:      ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
@@ -12,6 +13,11 @@ BuildRoot:   /tmp/%{name}-%{version}-root
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript postscript
 interpretter. Use this program to preview postscript documents on your
 screen.
+
+%description -l pl
+Przegl±darka Ghostscriptu dla GNOME - graficzny frontend dla interpretera
+postscriptu o nazwie Ghostscript. U¿ywaj tego programu do przegl±dania
+postscriptowych dokumentów na Twoim ekranie.
 
 %prep
 %setup -q
@@ -42,6 +48,10 @@ rm -rf $RPM_BUILD_ROOT
 %lang(pt) /usr/X11R6/share/locale/pt/LC_MESSAGES/ggv.mo
 
 %changelog
+* Sat Oct  3 1998 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
+  [0.26-5]
+- added pl translation.
+
 * Fri Oct  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [0.26-4]
 - added -q %setup parameter,
