@@ -4,7 +4,8 @@ Name:		ggv
 Version:	0.70
 Release:	2
 Copyright:	GPL
-Group:		X11/Applications
+Group:		X11/Applications/Graphics
+Group(pl):	X11/Aplikacje/Grafika
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/ggv/%{name}-%{version}.tar.gz
 Patch:		ggv-applnk.patch
 URL:		http://www.gnome.org/
