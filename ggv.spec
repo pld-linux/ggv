@@ -64,4 +64,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/pixmaps/*
 %{_datadir}/oaf/*
-/usr/share/info/*.gz
+%{_infodir}/*info*
