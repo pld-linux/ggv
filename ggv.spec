@@ -1,12 +1,12 @@
 Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
-Version:	2.5.1
+Version:	2.5.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	2e50f63d413e368219085cbc4072c0ff
+# Source0-md5:	e3697de171a078395cd832ba52d46de0
 Patch0:		%{name}-mime-pdf.patch
 Patch1:		%{name}-libtool.patch
 URL:		http://www.gnome.org/
