@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
 Name:		ggv
 Version:	1.99.96
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.99/%{name}-%{version}.tar.bz2
@@ -12,22 +12,18 @@ BuildRequires:	automake
 BuildRequires:	autoconf
 BuildRequires:	docbook-style-dsssl
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	gtk+2-devel >= 2.1.3-3
 BuildRequires:	libtool
-BuildRequires:	GConf2-devel >= 1.2.1
+BuildRequires:	GConf2-devel >= 1.2.1-10
 BuildRequires:	openjade
 BuildRequires:	scrollkeeper
 BuildRequires:	bonobo-activation-devel >= 2.1.0-3
-BuildRequires:	rpm-build >= 4.1-7
+BuildRequires:	rpm-build >= 4.1-8.2
 Requires(post):	GConf2
 Requires(post):	scrollkeeper
 Requires:	ghostscript
 Requires:	bonobo-activation >= 2.1.0-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_sysconfdir	/etc/X11/GNOME2
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
