@@ -27,7 +27,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME2
-%define   _serverdir  /usr/lib/bonobo/servers
+%define   _bonobo_server_dir  /usr/lib/bonobo/servers
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript
@@ -55,7 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Graphicsdir=%{_applnkdir}/Graphics \
 	omf_dest_dir=%{_omf_dest_dir}/%{name} \
-	serverdir=%{_serverdir}
+	serverdir=%{_bonobo_server_dir}
 
 %find_lang %{name} --with-gnome
 
@@ -77,7 +77,7 @@ GCONF_CONFIG_SOURCE="" \
 %{_applnkdir}/Graphics/ggv.desktop
 %{_datadir}/gnome-2.0/ui/ggv*
 %{_datadir}/idl/*
-%{_serverdir}/*
+%{_bonobo_server_dir}/*
 %{_omf_dest_dir}/%{name}
 %{_pixmapsdir}/*
 %{_sysconfdir}/gconf/schemas/*
