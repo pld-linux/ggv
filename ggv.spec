@@ -1,13 +1,21 @@
-Summary:     GNOME Ghostscript Viewer
-Summary(pl): Przegl±darka Ghostscriptu dla GNOME
-Name:        ggv
-Version:     0.26
-Release:     5
-Copyright:   GPL
-Group:       X11/Libraries
-Source:      ftp://ftp.gnome.org/pub/GNOME/sources/%{name}-%{version}.tar.gz
-URL:         http://www.gnome.org
+Summary:	GNOME Ghostscript Viewer
+Summary(pl):	Przegl±darka Ghostscriptu dla GNOME
+Name:		ggv
+Version:	0.61
+Release:	1
+Copyright:	GPL
+Group:		X11/Applications
+Source:		ftp://ftp.gnome.org/pub/GNOME/sources/ggv/%{name}-%{version}.tar.gz
+Patch:		ggv-applnk.patch
+URL:		http://www.gnome.org/
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	gnome-libs-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define		_prefix		/usr/X11R6
+%define		_sysconfdir	/etc/X11/GNOME
+%define		_applnkdir	%{_datadir}/applnk
 
 %description
 GNOME Ghostscript viewer - a GUI frontend to the Ghostscript postscript
@@ -21,20 +29,22 @@ postscriptowych dokumentów na Twoim ekranie.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" \
-./configure %{_target_platform} \
-	--prefix=/usr/X11R6
+gettextize --copy --force
+automake
+LDFLAGS="-s"; export LDFLAGS
+%configure
 
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+make install DESTDIR=$RPM_BUILD_ROOT
 
-strip $RPM_BUILD_ROOT/usr/X11R6/bin/*
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %find_lang %{name}
 
@@ -43,6 +53,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) /usr/X11R6/bin/ggv
-/usr/X11R6/share/apps/Graphics/ggv.desktop
+%doc *.gz
+%attr(755,root,root) %{_bindir}/ggv
+%{_sysconfdir}/CORBA/servers/*
+%{_applnkdir}/Graphics/ggv.desktop
+%{_datadir}/pixmaps/*
+
+%dir %{_datadir}/gnome/help/ggv
+%{_datadir}/gnome/help/ggv/C
