@@ -2,7 +2,7 @@ Summary:	GNOME Ghostscript Viewer
 Summary(pl):	Przegl±darka ghostscript dla GNOME
 Name:		ggv
 Version:	2.8.4
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ggv/2.8/%{name}-%{version}.tar.bz2
@@ -26,8 +26,10 @@ BuildRequires:	openjade
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
-Requires(post):	GConf2
+Requires(post,preun):	GConf2
+Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	scrollkeeper
 Requires:	ghostscript
 Requires:	libbonobo >= 2.6.2
@@ -51,15 +53,14 @@ przegl±dania postscriptowych dokumentów na ekranie.
 %build
 rm -f missing acinclude.m4
 %{__libtoolize}
-glib-gettextize --copy --force
-intltoolize --copy --force
+%{__glib_gettextize}
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
 	--enable-platform-gnome-2 \
 	--disable-schemas-install
-
 %{__make}
 
 %install
@@ -77,15 +78,16 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 rm -rf $RPM_BUILD_ROOT
 
 %post
-umask 022
-/usr/bin/scrollkeeper-update
-%gconf_schema_install
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1 ||:
+%gconf_schema_install ggv.schemas
+%scrollkeeper_update_post
+%update_desktop_database_post
+
+%preun
+%gconf_schema_uninstall ggv.schemas
 
 %postun
-umask 022
-/usr/bin/scrollkeeper-update
-[ ! -x /usr/bin/update-desktop-database ] || /usr/bin/update-desktop-database >/dev/null 2>&1
+%scrollkeeper_update_postun
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
