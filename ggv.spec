@@ -7,8 +7,7 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ggv/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	e8b338c1427e170ffbb33c62d0aaf191
-Patch0:		%{name}-mime-pdf.patch
-Patch1:		%{name}-desktop.patch
+Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.8.1
 BuildRequires:	autoconf
@@ -48,7 +47,6 @@ przegl±dania postscriptowych dokumentów na ekranie.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 rm -f missing acinclude.m4
