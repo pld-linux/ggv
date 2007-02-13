@@ -1,5 +1,5 @@
 Summary:	GNOME Ghostscript Viewer
-Summary(pl.UTF-8):   Przeglądarka ghostscript dla GNOME
+Summary(pl.UTF-8):	Przeglądarka ghostscript dla GNOME
 Name:		ggv
 Version:	2.8.5
 Release:	1
